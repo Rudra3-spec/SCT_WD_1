@@ -1,0 +1,151 @@
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+  background: #111;
+  color: white;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 14px 0;
+  z-index: 1000;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+.nav-brand a {
+  font-size: 26px;
+  font-weight: bold;
+  color: #38bdf8;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-brand a:hover {
+  color: #f59e0b;
+}
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #38bdf8;
+  transition: width 0.3s ease;
+}
+.nav-link:hover {
+  color: #38bdf8;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+.nav-link.active {
+  color: #38bdf8;
+}
+
+/* Sections */
+.section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+
+  /* Fade-in animation (default hidden) */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Backgrounds with gradients */
+#home {
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+}
+#about {
+  background: linear-gradient(135deg, #10b981, #065f46);
+}
+#services {
+  background: linear-gradient(135deg, #f59e0b, #b45309);
+}
+#portfolio {
+  background: linear-gradient(135deg, #8b5cf6, #4338ca);
+}
+#contact {
+  background: linear-gradient(135deg, #ef4444, #991b1b);
+}
+
+/* Hero text */
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+  animation: fadeInDown 1s ease;
+}
+.hero p {
+  font-size: 20px;
+  max-width: 650px;
+  margin: auto;
+  animation: fadeInUp 1.2s ease;
+}
+
+/* Keyframe animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
